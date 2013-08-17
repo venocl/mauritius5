@@ -58,9 +58,12 @@
             for (var i = 0; i < contacts.length; i++)
             {
                 var numbers = contacts[i].phoneNumbers;
-                for (var j = 0; j < numbers.length; j++)
-                {
-                    alert(numbers[j].value);
+                if(numbers != null)
+                    {
+                    for (var j = 0; j < numbers.length; j++)
+                    {
+                        alert(numbers[j].value);
+                    }
                 }
             }
         }
