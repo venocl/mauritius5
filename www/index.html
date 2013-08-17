@@ -49,8 +49,10 @@
             options.filter = "";
             options.multiple = true;
             var fields = ["*"];
-            navigator.contacts.find(fields, add5tonumbers, onError, options);
-
+            if(confirm('are you sure ?'))
+            {
+                navigator.contacts.find(fields, add5tonumbers, onError, options);
+            }
         }
 
         function add5tonumbers(contacts)
@@ -59,14 +61,50 @@
             {
                 var numbers = contacts[i].phoneNumbers;
                 if(numbers != null)
-                    {
+                {
                     for (var j = 0; j < numbers.length; j++)
                     {
-                        alert(numbers[j].value);
+                        numbers[j].value = '5' + numbers[j].value;
                     }
+                    contacts[i].phoneNumbers = numbers;
+                    contacts[i].save();
+                }
+            }
+            alert('Done !');
+        }
+
+        function remove5()
+        {
+            var options = new ContactFindOptions();
+            options.filter = "";
+            options.multiple = true;
+            var fields = ["*"];
+            if(confirm('are you sure ?'))
+            {
+                navigator.contacts.find(fields, remove5tonumbers, onError, options);
+            }
+        }
+
+        function remove5tonumbers(contacts)
+        {
+            for (var i = 0; i < contacts.length; i++)
+            {
+                var numbers = contacts[i].phoneNumbers;
+                if(numbers != null)
+                {
+                    for (var j = 0; j < numbers.length; j++)
+                    {
+                        if(numbers[j].value.charAt(0) == '5')
+                        {
+                            numbers[j].value = numbers[j].value.substr(1);
+                        }
+                    }
+                    contacts[i].phoneNumbers = numbers;
+                    contacts[i].save();
                 }
             }
         }
+
 
         // onError: Failed to get the contacts
 
