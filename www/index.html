@@ -47,6 +47,10 @@
         <script type="text/javascript">
             app.initialize();
         </script>
+
+        <script type="text/javascript" src="js/algo.js"></script>
+        <!--<script type="text/javascript" src="js/test.js"></script>-->
+
         <script type="text/javascript" charset="utf-8">
 
         function add5()
@@ -70,7 +74,10 @@
                 {
                     for (var j = 0; j < numbers.length; j++)
                     {
-                        numbers[j].value = '5' + numbers[j].value;
+                        if(numbers[j] != null)
+                        {
+                            numbers[j].value = algoremove5(numbers[j].value);
+                        }
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
@@ -100,9 +107,9 @@
                 {
                     for (var j = 0; j < numbers.length; j++)
                     {
-                        if(numbers[j].value.charAt(0) == '5')
+                        if(numbers[j] != null)
                         {
-                            numbers[j].value = numbers[j].value.substr(1);
+                            numbers[j].value = algoremove5(numbers[j].value);
                         }
                     }
                     contacts[i].phoneNumbers = numbers;
