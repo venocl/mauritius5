@@ -77,8 +77,9 @@
                         if(numbers[j] != null)
                         {
                             var num = numbers[j].value;
-                            numbers[j].value = algoremove5(numbers[j].value);
-                            alert('changed ' + num + ' in ' + numbers[j].value + ' , algo returned : ' + algoadd5(num));
+                            var newNum = algoremove5(numbers[j].value);
+                            numbers[j].value = newNum;
+                            alert('1 changed ' + num + ' in ' + numbers[j].value + ' , algo returned : ' + algoadd5(num));
                         }
                     }
                     contacts[i].phoneNumbers = numbers;
