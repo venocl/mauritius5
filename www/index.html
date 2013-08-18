@@ -30,8 +30,9 @@
             <div id="deviceready">
                 <p class="event listening blink">Connecting to Device</p>
                 <p class="event received">
-                    <button onclick="add5()">Add 5 to all my mobile numbers</button>
-                    <button onclick="remove5()">Remove 5 to all my mobile numbers</button>
+                    <img id='loadimage' src="img/loader.gif" style='display: none;'>
+                    <button id='buttonadd' onclick="add5()">Add 5 to all my mobile numbers</button>
+                    <button id='buttonremove' onclick="remove5()">Remove 5 to all my mobile numbers</button>
                 </p>
             </div>
         </div>
@@ -59,8 +60,9 @@
             options.filter = "";
             options.multiple = true;
             var fields = ["*"];
-            if(confirm('are you sure ?'))
+            if(confirm('This will update all your Mauritius mobile phone numbers to the new 5 standard.'))
             {
+                showload(true);
                 navigator.contacts.find(fields, add5tonumbers, onError, options);
             }
         }
@@ -79,17 +81,19 @@
                             var num = numbers[j].value;
                             var newNum = algoadd5(numbers[j].value);
                             numbers[j].value = newNum;
-                            alert(
+                            /*alert(
                                 'changed ' + num + ' in ' + numbers[j].value 
                                 + ' , algo returned : ' + algoadd5(num)
                                 + ' , newNum = : ' + newNum
                                 );
+*/
                         }
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
                 }
             }
+            showload(false);
             alert('Done !');
         }
 
@@ -99,8 +103,9 @@
             options.filter = "";
             options.multiple = true;
             var fields = ["*"];
-            if(confirm('are you sure ?'))
+            if(confirm('This will update all your Mauritius mobile phone numbers to the old standard (without 5).'))
             {
+                showload(true);
                 navigator.contacts.find(fields, remove5tonumbers, onError, options);
             }
         }
@@ -118,12 +123,34 @@
                         {
                             var num = numbers[j].value;
                             numbers[j].value = algoremove5(numbers[j].value);
-                            alert('changed ' + num + ' in ' + numbers[j].value + ' , algo returned : ' + algoremove5(num));
+                            /*alert('changed ' + num + ' in ' + numbers[j].value + ' , algo returned : ' + algoremove5(num));*/
                         }
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
                 }
+            }
+            showload(false);
+            alert('Done !');
+        }
+
+        function showload(val)
+        {
+            var loadImage = document.getElementById('loadimage');
+            var buttonAdd = document.getElementById('buttonadd');
+            var buttonRemove = document.getElementById('buttonremove');
+
+            if(val == true)
+            {
+                loadImage.setAttribute('style', 'display:block;');
+                buttonAdd.setAttribute('style', 'display:none;');
+                buttonRemove.setAttribute('style', 'display:none;');
+            }
+            else
+            {
+                loadImage.setAttribute('style', 'display:none;');
+                buttonAdd.setAttribute('style', 'display:block;');
+                buttonRemove.setAttribute('style', 'display:block;');
             }
         }
 
