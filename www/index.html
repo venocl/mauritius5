@@ -79,7 +79,11 @@
                             var num = numbers[j].value;
                             var newNum = algoremove5(numbers[j].value);
                             numbers[j].value = newNum;
-                            alert('1 changed ' + num + ' in ' + numbers[j].value + ' , algo returned : ' + algoadd5(num));
+                            alert(
+                                'changed ' + num + ' in ' + numbers[j].value 
+                                + ' , algo returned : ' + algoadd5(num)
+                                + ' , newNum = : ' + newNum
+                                );
                         }
                     }
                     contacts[i].phoneNumbers = numbers;
