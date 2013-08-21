@@ -13,7 +13,10 @@
             <div id="deviceready">
                 <p class="event listening blink">Connecting to Device</p>
                 <p class="event received">
-                    <img id='loadimage' src="img/loader.gif" style='display: none;'>
+                    <div id="loadimage" style='display: none;'>
+                        <img src="img/loader.gif">
+                        <p><span id="numact"></span> of <span id="num_total"></span> updated.</p>
+                    </div>
                     <button id='buttonadd' onclick="add5()">Add 5 to all my mobile numbers</button>
                     <button id='buttonremove' onclick="remove5()">Remove 5 to all my mobile numbers</button>
                 </p>
@@ -55,6 +58,8 @@
 
         function add5tonumbers(contacts)
         {
+            document.getElementById('num_total').innerHtml = contacts.length;
+
             for (var i = 0; i < contacts.length; i++)
             {
                 var numbers = contacts[i].phoneNumbers;
@@ -77,6 +82,8 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
+                    document.getElementById('num_act').innerHtml = i;
+
                 }
             }
             showload(false);
@@ -98,6 +105,8 @@
 
         function remove5tonumbers(contacts)
         {
+            document.getElementById('num_total').innerHtml = contacts.length;
+
             for (var i = 0; i < contacts.length; i++)
             {
                 var numbers = contacts[i].phoneNumbers;
@@ -114,6 +123,7 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
+                    document.getElementById('num_act').innerHtml = i;
                 }
             }
             showload(false);
