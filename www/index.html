@@ -59,7 +59,7 @@
 
         function add5tonumbers(contacts)
         {
-            document.getElementById('num_total').innerHtml = String(contacts.length);
+            document.getElementById('num_total').innerHTML = String(contacts.length);
             alert(contacts.length + ' contacts found.');
 
             for (var i = 0; i < contacts.length; i++)
@@ -84,7 +84,7 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
-                    document.getElementById('num_act').innerHtml = String(i);
+                    document.getElementById('num_act').innerHTML = String(i);
 
                 }
             }
@@ -107,7 +107,7 @@
 
         function remove5tonumbers(contacts)
         {
-            document.getElementById('num_total').innerHtml = contacts.length;
+            document.getElementById('num_total').innerHTML = contacts.length;
 
             for (var i = 0; i < contacts.length; i++)
             {
@@ -125,7 +125,7 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
-                    document.getElementById('num_act').innerHtml = i;
+                    document.getElementById('num_act').innerHTML = i;
                 }
             }
             showload(false);
