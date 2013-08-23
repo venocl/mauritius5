@@ -52,6 +52,7 @@
             if(confirm('This will update all your Mauritius mobile phone numbers to the new 5 standard.'))
             {
                 showload(true);
+                alert('showload done');
                 navigator.contacts.find(fields, add5tonumbers, onError, options);
             }
         }
