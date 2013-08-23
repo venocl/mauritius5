@@ -52,7 +52,7 @@
             if(confirm('This will update all your Mauritius mobile phone numbers to the new 5 standard.'))
             {
                 showload(true);
-                alert('showload done');
+                //alert('showload done');
                 navigator.contacts.find(fields, add5tonumbers, onError, options);
             }
         }
@@ -60,7 +60,7 @@
         function add5tonumbers(contacts)
         {
             document.getElementById('num_total').innerHTML = String(contacts.length);
-            alert(contacts.length + ' contacts found.');
+            //alert(contacts.length + ' contacts found.');
 
             for (var i = 0; i < contacts.length; i++)
             {
@@ -156,7 +156,7 @@
         // onError: Failed to get the contacts
 
         function onError(contactError) {
-            alert('onError!');
+            alert('Error!');
         }
         </script>
 
