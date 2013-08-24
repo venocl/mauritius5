@@ -67,7 +67,7 @@
 
             for (var i = 0; i < contacts.length; i++)
             {
-                console.log('contact ' + String(i) + ': ');
+                console.log('contact ' + String(i+1) + ': ');
                 console.log(contacts[i]);
 
                 var numbers = contacts[i].phoneNumbers;
@@ -92,10 +92,12 @@
                         }
                     }
 
+                    console.log(numbers);
+
                     //contacts[i].phoneNumbers = numbers;
                     //contacts[i].save();
                     
-                    document.getElementById('num_act').innerHTML = String(i);
+                    document.getElementById('num_act').innerHTML = String(i+1);
 
                 }
             }
@@ -137,7 +139,7 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
-                    document.getElementById('num_act').innerHTML = i;
+                    document.getElementById('num_act').innerHTML = String(i+1);
                 }
             }
             showload(false);
