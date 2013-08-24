@@ -71,14 +71,14 @@
                 console.log(contacts[i]);
 
                 var numbers = contacts[i].phoneNumbers;
-                console.log(contacts[i].phoneNumbers);
 
-                console.log(numbers);
-                /*if(numbers != null)
+                if(numbers !== null)
                 {
+                    console.log(numbers);
+                    /*
                     for (var j = 0; j < numbers.length; j++)
                     {
-                        if(numbers[j] != null)
+                        if(numbers[j] !== null)
                         {
                             var num = numbers[j].value;
                             var newNum = algoadd5(numbers[j].value);
@@ -93,9 +93,10 @@
                     }
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
+                    */
                     document.getElementById('num_act').innerHTML = String(i);
 
-                }*/
+                }
             }
             showload(false);
             alert('Done !');
