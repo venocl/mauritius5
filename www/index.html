@@ -42,6 +42,7 @@
         <!--<script type="text/javascript" src="js/test.js"></script>-->
 
         <script type="text/javascript" charset="utf-8">
+        var allcontacts;
 
         function add5()
         {
@@ -59,14 +60,17 @@
 
         function add5tonumbers(contacts)
         {
+            console.log(contacts);
+            /*allcontacts = contacts;
             document.getElementById('num_total').innerHTML = String(contacts.length);
             alert(contacts.length + ' contacts found.');
 
             for (var i = 0; i < contacts.length; i++)
             {
+                console.log('contact ' + String(i) + ': ');
                 var numbers = contacts[i].phoneNumbers;
-                console.log('contact ' + String(i) + ': ' + dump(contacts[i], 5));
-                /*if(numbers != null)
+
+                if(numbers != null)
                 {
                     for (var j = 0; j < numbers.length; j++)
                     {
