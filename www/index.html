@@ -65,14 +65,15 @@
             document.getElementById('num_total').innerHTML = String(contacts.length);
             console.log(contacts.length + ' contacts found.');
 
-            /*for (var i = 0; i < contacts.length; i++)
+            for (var i = 0; i < contacts.length; i++)
             {
                 console.log('contact ' + String(i) + ': ');
                 console.log(contacts[i]);
 
                 var numbers = contacts[i].phoneNumbers;
+                console.log(contacts[i].phoneNumbers);
 
-                if(numbers != null)
+                /*if(numbers != null)
                 {
                     for (var j = 0; j < numbers.length; j++)
                     {
@@ -93,8 +94,8 @@
                     contacts[i].save();
                     document.getElementById('num_act').innerHTML = String(i);
 
-                }
-            }*/
+                }*/
+            }
             showload(false);
             alert('Done !');
         }
