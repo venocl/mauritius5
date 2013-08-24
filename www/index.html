@@ -65,8 +65,8 @@
             for (var i = 0; i < contacts.length; i++)
             {
                 var numbers = contacts[i].phoneNumbers;
-                console.log('contact ' + (string)i + ': ' + dump(contacts[i]));
-                if(numbers != null)
+                console.log('contact ' + (string)i + ': ' + dump(contacts[i], 5));
+                /*if(numbers != null)
                 {
                     for (var j = 0; j < numbers.length; j++)
                     {
@@ -87,7 +87,7 @@
                     contacts[i].save();
                     document.getElementById('num_act').innerHTML = String(i);
 
-                }
+                }*/
             }
             showload(false);
             alert('Done !');
