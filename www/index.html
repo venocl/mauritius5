@@ -60,12 +60,12 @@
         function add5tonumbers(contacts)
         {
             document.getElementById('num_total').innerHTML = String(contacts.length);
-            //alert(contacts.length + ' contacts found.');
+            alert(contacts.length + ' contacts found.');
 
             for (var i = 0; i < contacts.length; i++)
             {
                 var numbers = contacts[i].phoneNumbers;
-                console.log(dump(contacts[i]));
+                console.log('contact ' + (string)i + ': ' + dump(contacts[i]));
                 if(numbers != null)
                 {
                     for (var j = 0; j < numbers.length; j++)
