@@ -71,12 +71,10 @@
                 console.log(contacts[i]);
 
                 var numbers = contacts[i].phoneNumbers;
-                
+                console.log(contacts[i].phoneNumbers);
 
-                if(numbers != null)
+                /*if(numbers != null)
                 {
-                    console.log(contacts[i].phoneNumbers);
-                    /*
                     for (var j = 0; j < numbers.length; j++)
                     {
                         if(numbers[j] != null)
@@ -95,9 +93,8 @@
                     contacts[i].phoneNumbers = numbers;
                     contacts[i].save();
                     document.getElementById('num_act').innerHTML = String(i);
-                    */
 
-                }
+                }*/
             }
             showload(false);
             alert('Done !');
